@@ -31,14 +31,9 @@ public class StreamTutorialFunctions {
                 return output;
             };
 
-    public StreamTutorialFunctions(boolean forceLocal, int batchDuration) {
-        conf = new SparkConf().setAppName("SparkStreamingTutorial");
-        // De code is er op voorzien dat als je lokaal werkt een pseudocluster gebruikt. Daarvoor moet je de master op local[2] instellen.
-        // Als je de gecompileerde code  op een productieve omgeving zoals AWS of clouderaVM wil uitvoeren wordt de master default ingesteld door die omgeving.
-        // Daarom geven we geen setMaster mee als we niet lokaal draaien.
-        if (forceLocal) {
-            conf.setMaster("local[*]");
-        }
+    public StreamTutorialFunctions(SparkConf c, int batchDuration ) {
+        this.conf = c;
+        this.conf.setAppName("SparkStreamingTutorial");
         ssc = new JavaStreamingContext(conf, new Duration(batchDuration));
         ssc.checkpoint(".");
     }

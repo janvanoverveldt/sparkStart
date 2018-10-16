@@ -13,11 +13,11 @@ public class sparkRunner {
 
         TutorialFunctions tf = new TutorialFunctions();
 
-        tf.WordCount(args[0],args[1]);
+        //tf.WordCount(args[0],args[1]);
         //tf.ClosureDemo();
         //tf.PrintValues();
-        //tf.ElementsPerPartition();
-        //tf.keepRunning();
+        tf.ElementsPerPartition();
+        tf.keepRunning();
         }
     }
 
