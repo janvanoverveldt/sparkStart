@@ -16,21 +16,23 @@ package kdg.bigdata;/*
  */
 
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Pattern;
-
-import scala.Tuple2;
-
 import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.function.*;
 import org.apache.spark.api.java.JavaPairRDD;
-import org.apache.spark.api.java.Optional;
 import org.apache.spark.api.java.StorageLevels;
+import org.apache.spark.api.java.function.Function3;
 import org.apache.spark.streaming.Durations;
 import org.apache.spark.streaming.State;
 import org.apache.spark.streaming.StateSpec;
 import org.apache.spark.streaming.api.java.*;
+import scala.Tuple2;
+
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.regex.Pattern;
+
+
 
 /**
  * Counts words cumulatively in UTF8 encoded, '\n' delimited text received from the network every
@@ -80,11 +82,11 @@ public class JavaStatefulNetworkWordCount {
                 };
 
         // DStream made of get cumulative counts that get updated in every batch
-        JavaMapWithStateDStream<String, Integer, Integer, Tuple2<String, Integer>> stateDstream =
-                wordsDstream.mapWithState(StateSpec.function(mappingFunc).initialState(initialRDD));
+        JavaMapWithStateDStream<String, Integer, Integer, Tuple2<String, Integer>> stateDstream;
+        //stateDstream = wordsDstream.mapWithState(StateSpec.function(mappingFunc).initialState(initialRDD));
 
-        stateDstream.print();
-        ssc.start();
-        ssc.awaitTermination();
+        //stateDstream.print();
+        //ssc.start();
+        //ssc.awaitTermination();
     }
 }

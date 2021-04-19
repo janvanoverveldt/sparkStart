@@ -9,8 +9,6 @@ public class sparkRunner {
         if (args.length < 2) {
             System.err.println("Usage: kdg.bigdata.sparkRunner.java input_location {output_location}");
             System.exit(1);
-        } else {
-
         }
 
         TutorialFunctions tf = new TutorialFunctions();
@@ -19,7 +17,7 @@ public class sparkRunner {
         //tf.ClosureDemo();
         //tf.PrintValues();
         //tf.ElementsPerPartition();
-        tf.keepRunning();
+        //tf.keepRunning();
         }
     }
 

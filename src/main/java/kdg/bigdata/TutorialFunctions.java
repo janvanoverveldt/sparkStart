@@ -50,7 +50,7 @@ public class TutorialFunctions {
                 .mapToPair(w -> new Tuple2<String, Integer>(w, 1))
                 .reduceByKey((a, b) -> a + b);
         JavaRDD<String> pairsString = pairs.map(a -> a._1    + "," + a._2);
-        //pairsString.saveAsTextFile(output);
+        pairsString.saveAsTextFile(output);
     }
 
     //Closure principle
