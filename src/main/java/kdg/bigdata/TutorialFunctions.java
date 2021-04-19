@@ -43,14 +43,7 @@ public class TutorialFunctions {
 
 
     public void WordCount(String input, String output) {
-       JavaRDD<String> lines = sc.textFile(input,3);
-       JavaRDD<String> words = lines.flatMap(l -> IteratorUtils.arrayIterator(l.split(" ")));
-       JavaRDD<String> cleanedWords = words.map(w -> w.replaceAll("[^a-zA-Z ]", "")).map(w -> w.toLowerCase());
-        JavaPairRDD<String, Integer> pairs = cleanedWords
-                .mapToPair(w -> new Tuple2<String, Integer>(w, 1))
-                .reduceByKey((a, b) -> a + b);
-        JavaRDD<String> pairsString = pairs.map(a -> a._1    + "," + a._2);
-        pairsString.saveAsTextFile(output);
+
     }
 
     //Closure principle
