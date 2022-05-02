@@ -111,7 +111,7 @@ public class TutorialFunctions {
 
 
     public void keepRunning() throws InterruptedException {
-        //Onderstaande loop zorgt ervoor dat de job blijft draaien, zodat je de SparkUI kan inspecteren.
+        //Onderstaande zorgt ervoor dat de job blijft draaien, zodat je de SparkUI kan inspecteren.
         // Zet deze in comments als je hem niet nodig hebt.
         sleep(360000);
 
