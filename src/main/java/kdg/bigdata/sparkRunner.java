@@ -17,7 +17,7 @@ public class sparkRunner {
         //tf.ClosureDemo();
         //tf.PrintValues();
         //tf.ElementsPerPartition();
-       //tf.keepRunning();
+       tf.keepRunning();
         }
     }
 

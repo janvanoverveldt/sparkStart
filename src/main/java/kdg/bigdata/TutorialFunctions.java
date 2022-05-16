@@ -85,7 +85,7 @@ public class TutorialFunctions {
         List<Integer> data = Arrays.asList(1, 2, 3, 4, 5);
         // We maken een RDD aan met 5 elementen in twee partities
         JavaRDD<Integer> distData = sc.parallelize(data, 2);
-        //distData.cache();
+        distData.cache();
         // Als test voeren we een count actie uit (we tellen gewoon hoeveel elementen er in de RDD zijn)
         System.out.println("Aantal data-elementen: " + distData.count());
 
@@ -105,10 +105,7 @@ public class TutorialFunctions {
         // Per partitie wordt het aantal afgedrukt.
         int index = 0;
         countElementsPerPartition.collect().forEach(x -> System.out.println("Aantal elementen in partitie: " + x));
-
-
     }
-
 
     public void keepRunning() throws InterruptedException {
         //Onderstaande zorgt ervoor dat de job blijft draaien, zodat je de SparkUI kan inspecteren.
@@ -116,7 +113,6 @@ public class TutorialFunctions {
         sleep(360000);
 
     }
-
 }
 
 
